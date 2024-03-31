@@ -175,7 +175,14 @@ M.config = function()
             require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
           end, 100)
         end,
-      }
+      },
+        -- comments plugins --
+      {
+        "numToStr/Comment.nvim",
+        config = function()
+          require("Comment").setup()
+        end,
+      },
     }
   end
 return M
