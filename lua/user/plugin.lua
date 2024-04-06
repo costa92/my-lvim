@@ -3,6 +3,32 @@ local M = {}
 M.config = function()
     lvim.plugins = {
         { "lunarvim/colorschemes" },
+{
+    "chrisgrieser/nvim-various-textobjs",
+    lazy = true,
+    event = { "User FileOpened" },
+    config = function()
+        require("various-textobjs").setup({
+            useDefaultKeymaps = true,
+            lookForwardLines = 10,
+        })
+        -- example: `an` for outer subword, `in` for inner subword
+        vim.keymap.set({ "o", "x" }, "aS", function()
+            require("various-textobjs").subword(false)
+        end)
+        vim.keymap.set({ "o", "x" }, "iS", function()
+            require("various-textobjs").subword(true)
+        end)
+    end,
+},
+    {
+    "ibhagwan/smartyank.nvim",
+    lazy = true,
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+        require("smartyank").setup()
+    end,
+},
         {
             "f-person/git-blame.nvim",
             event = "BufRead",
