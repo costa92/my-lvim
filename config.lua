@@ -5,6 +5,18 @@
 -- keymap 
 --
 
+
+-- 修改主题
+lvim.colorscheme = "tokyonight"
+lvim.builtin.theme.name = "tokyonight"
+lvim.builtin.theme.tokyonight.options.on_highlights = function(hl, c)
+    hl.WinSeparator = {
+        fg = c.orange,
+        bold = true,
+    }
+end
+
+
 -- user plugin --
 require("user.plugin").config()
 -- vimtex config --

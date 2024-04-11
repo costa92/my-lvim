@@ -54,6 +54,11 @@ M.config = function()
   }
   vim.g.vimtex_fold_enabled = 0
   vim.g.vimtex_fold_manual = 0
+
+  vim.api.nvim_cmd({
+    cmd = 'colorscheme',
+  },{})
+
   vim.g.vimtex_fold_types = {
     cmd_addplot = {
       cmds = { "addplot[+3]?" },
