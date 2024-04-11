@@ -209,6 +209,20 @@ M.config = function()
           require("Comment").setup()
         end,
       },
+      {
+        "akinsho/toggleterm.nvim",
+         config = function ()
+          require("user.plugin.toggleterm").config()
+         end
+      },
+      {
+        "folke/trouble.nvim",
+        lazy = true,
+        cmd = { "TroubleToggle", "Trouble", "TroubleRefresh" },
+        config = function()
+          require("trouble").setup()
+         end,
+      },
     }
   end
 return M
